@@ -23,8 +23,8 @@ endif
 
 RELATIVE_RPATH       := 0
 
-MEMO_TARGET          ?= darwin-arm64
-MEMO_CFVER           ?= 1700
+MEMO_TARGET          ?= iphoneos-arm64
+MEMO_CFVER           ?= 1500
 # iOS 13.0 == 1665.15.
 CFVER_WHOLE          := $(shell echo $(MEMO_CFVER) | cut -d. -f1)
 

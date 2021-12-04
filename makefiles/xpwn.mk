@@ -3,14 +3,13 @@ $(error Use the main Makefile)
 endif
 
 SUBPROJECTS  += xpwn
-XPWN_COMMIT  := def39d6e0ed0fdec0a0ff526bd11bec15d8de4e7
-XPWN_VERSION := 0.5.8+git20201206.$(shell echo $(XPWN_COMMIT) | cut -c -7)
+XPWN_COMMIT  := d1d2d3da2081b197b2946f2699d68b2a4acfbfb2
+XPWN_VERSION := 0.5.8+git20211128.$(shell echo $(XPWN_COMMIT) | cut -c -7)
 DEB_XPWN_V   ?= $(XPWN_VERSION)
 
 xpwn-setup: setup
-	$(call GITHUB_ARCHIVE,OothecaPickle,xpwn,$(XPWN_COMMIT),$(XPWN_COMMIT))
+	$(call GITHUB_ARCHIVE,LukeeGD,xpwn,$(XPWN_COMMIT),$(XPWN_COMMIT))
 	$(call EXTRACT_TAR,xpwn-$(XPWN_COMMIT).tar.gz,xpwn-$(XPWN_COMMIT),xpwn)
-	$(call DO_PATCH,xpwn,xpwn,-p1)
 
 	sed -i 's/powerpc-apple-darwin8-libtool/libtool/' $(BUILD_WORK)/xpwn/ipsw-patch/CMakeLists.txt
 
